@@ -8,6 +8,4 @@ before-install:
     - docker build -t bentchaw/docker-react -f Dockerfile.dev .
 
 script:
-    - docker run bentchaw/docker-react npm run test -- --coverage
-
-install: travis_wait 30 mvn install
+    - docker run -e CI=true bentchaw/docker-react npm run test
